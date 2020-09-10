@@ -1,7 +1,7 @@
 :root {
     --color-black-primary: #17141d;
     --color-black-secondary: #161a1dff;
-    --color-black-tertiary: #0f0d16;
+    --color-black-tertiary: #100e14;
 
     --color-red-dark-1: #660708ff;
     --color-red-dark-2: #a4161aff;
@@ -21,7 +21,7 @@
 
     --shadow-dark: 0 0 3rem rgb(0, 0, 0);
     --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
-    --shadow-white: 0 0 .8rem .2rem var(--color-red-iight-1);
+    --shadow-medium: 0 0 .8rem .2rem rgba(0,0,0,.3);
 
 
     --line: 1px solid var(--color-grey-light-2);
@@ -42,14 +42,15 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    scrollbar-color: var(--color-black-primary), var(--color-black-secondary);
+    /* scrollbar-color: var(--color-black-primary), var(--color-black-secondary); */
+    scrollbar-color: #666 var(--color-black-primary);
 }
 
 body {
     font-family: 'Montserrat', 'Roboto', 'Helvetica', 'sans-serif';
     font-weight: 400;
     line-height: 1.6;
-    color: var(--color-grey-dark-2);
+    color: var(--color-white-primary);
     background-image: linear-gradient(to right bottom, var(--color-black-primary), var(--color-black-secondary));
     background-size: cover;
     background-repeat: no-repeat;
@@ -59,7 +60,11 @@ body {
 .container{
     max-width: 120rem;
     margin: 8rem auto;
-    background-image: linear-gradient(to bottom, var(--color-black-primary), var(--color-black-tertiary));
+    background: linear-gradient(
+        var(--color-black-primary) 0%,
+        var(--color-black-secondary) 50%,
+        var(--color-black-secondary) 100%
+    );
     border-radius: 3px;
     min-height: 50rem;
     box-shadow: var(--shadow-dark);
@@ -68,8 +73,9 @@ body {
 .header{
     font-size: 1.4rem;
     height: 7rem;
-    background-color: var(--color-grey-light-1);
-    box-shadow: var(--shadow-light);
+    background-color: var(--color-black-secondary);
+    box-shadow: var(--shadow-medium);
+    border-bottom: var(--line);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,7 +101,7 @@ body {
     font-weight: 500;
     letter-spacing: -1px;
     margin-left: 1rem;
-    color: var(--color-black-secondary);
+    color: var(--color-white-primary);
     text-transform: uppercase;
 
 }
@@ -120,8 +126,10 @@ body {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
-    background-color: var( --color-grey-light-2);
-    padding: .7rem 2rem;
+    background-color: var(--color-black-tertiary);
+    box-shadow: var(--shadow-light);
+
+    padding: 1rem 2rem;
     border: none;
     border-radius: 10rem;
     width: 90%;
@@ -132,16 +140,17 @@ body {
 .form-control:focus {
     outline: none;
     width: 100%;
-    background-color: var( --color-grey-light-1);
+    background-color: var(--color-black-secondary);
+    box-shadow: var(--shadow-medium);
 }
 
 .form-control:focus + .button{
-    background-color: var( --color-grey-light-1);
+    background-color: var(--color-black-secondary);
 }
 
 .button{
     border: none;
-    background-color: var( --color-grey-light-2);
+    background-color: var(--color-black-tertiary);
     cursor: pointer;
 }
 .button:focus{
@@ -154,7 +163,7 @@ body {
 .icon {
     height: 2rem;
     width: 2rem;
-    fill: var(--color-grey-light-1);
+    color: var(--color-white-secondary);
 }
 
 /*  ================================================
@@ -165,6 +174,7 @@ body {
     display: flex;
     padding: 3rem;
     overflow-x: scroll;
+    min-height: 50rem;
 }
 
 .mini-card {
@@ -185,24 +195,116 @@ body {
 }
 
 .mini-card:focus-within ~ .mini-card, .mini-card:hover ~ .mini-card {
-    transform: translateX(13rem);
+    transform: translateX(10rem);
 }
 
 .mini-card:not(:first-child) {
-    margin-left: -13rem;
+    margin-left: -5rem;
 }
 
 /* Gallery Item Styles */
-
 .card-header{
     margin-bottom: auto;
+
 }
 
-.card-header-title {
-    color: #fff;
-    font-weight: 700;
-    font-size: 2rem;
+.card-header-title{
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+.book-id {
+    color: var(--color-white-secondary);
+    margin: 0 0 1rem;
+}
+
+.book-date{
+    color: var(--color-grey-dark-2);
+    margin-left: 1rem;
+}
+
+.mini-card h2 {
+    font-size: 2rem;
+    margin: .5rem 0 auto;
+    letter-spacing: -.03rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+a{
+    font-size: 2rem;
+    color: var(--color-white-primary);
+    text-decoration: none;
+    transition:  all .3s;
+    cursor: pointer;
+}
+
+h2 a {
+    color: inherit;
+    border: 0;
+    display: inline-block;
+}
+
+a:hover,
+.tags span:hover,
+.book-author:hover {
+    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    text-shadow: none;
+}
+
+
+/* Book Meta Styles */
+.book-meta {
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-meta-img{
+    margin-bottom:auto;
+    margin-top: 2rem;    
+}
+
+.book-img {
+    display: inline-block;
+    width:100%;
+    height: auto;
+}
+
+.tags {
+	margin: 0;
+	padding: .5rem 0 1rem;
+	line-height: 2;
+}
+
+.tags span {
+	font-style: normal;
+	font-weight: 500;
+    color: #7a7a8c;
+    text-transform: uppercase;
+    font-size: .8rem;
+    white-space: nowrap;
+    border: 3px solid #28242f;
+    border-radius: 2rem;
+    padding: .5rem .85rem .5rem;
+    
+}
+
+.tags span:focus, .tags span:hover {
+	color: #03a9f4;
+	border-color: #fff;
+	position: relative;
+}
+
+
+
 /*
 .book {
     display: inline-block;
