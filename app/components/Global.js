@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FormGroup, FormControl, InputGroup} from 'react-bootstrap';
+import {FormGroup, FormControl, InputGroup, Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,25 +26,41 @@ class Global extends Component{
 
     render(){
         return (
-            <div className="Global">
-                <h2>Book Explorer!</h2>
-                <FormGroup>
-                    <InputGroup >
-                        <FormControl 
-                            type="text"
-                            placeholder="Search for a book"
-                            onChange={event=>this.setState({query: event.target.value})}
-                            onKeyPress={event=>{
-                                if(event.key === 'Enter'){
-                                    this.search();
-                                }
-                            }}
-                        />
-                        <InputGroup.Append onClick={()=>this.search()}>
-                            <InputGroup.Text><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
-                        </InputGroup.Append>
-                    </InputGroup>
-                </FormGroup>
+            <div className="container">
+                <div className="header">
+                    {/* <img  
+                        className="logo"
+                        src="https://imgur.com/LGwlFh8.png"
+                        alt="Logo"
+                    /> */}
+
+                    <span className="title">Book Finder</span>
+                    
+                    <FormGroup>
+                        <InputGroup>
+                            <FormControl 
+                                type="text"
+                                placeholder="Search for a book"
+                                onChange={event=>this.setState({query: event.target.value})}
+                                onKeyPress={event=>{
+                                    if(event.key === 'Enter'){
+                                        this.search();
+                                    }
+                                }}
+                            />
+                            <Button 
+                                className="button"
+                                onClick={()=>this.search()}
+                            >
+                                <FontAwesomeIcon
+                                    className="icon"
+                                    icon={faSearch}
+                                />
+                            </Button>
+                        </InputGroup>
+                    </FormGroup>
+                </div>
+                
                 <Gallery items={this.state.items}/>
             </div>
         )

@@ -1,10 +1,209 @@
-.Global{
-    text-align: center;
-    padding: 20px;
+:root {
+    --color-black-primary: #17141d;
+    --color-black-secondary: #161a1dff;
+    --color-black-tertiary: #0f0d16;
+
+    --color-red-dark-1: #660708ff;
+    --color-red-dark-2: #a4161aff;
+    --color-red-dark-3: #ba181bff;
+
+    --color-red-iight-1: #e5383bff;
+    --color-red-light-2: #b1a7a6ff;
+
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+
+    --color-grey-light-1: #d3d3d3ff;
+    --color-grey-light-2: #f5f3f4ff;
+
+    --color-white-primary: #ffffffff;
+    --color-white-secondary: #eeeeeeee;
+
+    --shadow-dark: 0 0 3rem rgb(0, 0, 0);
+    --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
+    --shadow-white: 0 0 .8rem .2rem var(--color-red-iight-1);
+
+
+    --line: 1px solid var(--color-grey-light-2);
+
 }
 
-/* Gallery Styles*/
+* {
+    margin: 0;
+    padding: 0;
+}
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scrollbar-color: var(--color-black-primary), var(--color-black-secondary);
+}
+
+body {
+    font-family: 'Montserrat', 'Roboto', 'Helvetica', 'sans-serif';
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-grey-dark-2);
+    background-image: linear-gradient(to right bottom, var(--color-black-primary), var(--color-black-secondary));
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container{
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-image: linear-gradient(to bottom, var(--color-black-primary), var(--color-black-tertiary));
+    border-radius: 3px;
+    min-height: 50rem;
+    box-shadow: var(--shadow-dark);
+}
+
+.header{
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px 3px 0 0;
+}
+
+
+.logo {
+    display: flex;
+    height: 7rem;
+    padding: 0 .5rem;
+
+    align-self: stretch;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    align-self: stretch;
+    align-items: center;
+    font-size: 2.4rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin-left: 1rem;
+    color: var(--color-black-secondary);
+    text-transform: uppercase;
+
+}
+
+.form-group{
+    flex: 0 0 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.input-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 90%;
+}
+
+.form-control {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var( --color-grey-light-2);
+    padding: .7rem 2rem;
+    border: none;
+    border-radius: 10rem;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3rem;
+}
+
+.form-control:focus {
+    outline: none;
+    width: 100%;
+    background-color: var( --color-grey-light-1);
+}
+
+.form-control:focus + .button{
+    background-color: var( --color-grey-light-1);
+}
+
+.button{
+    border: none;
+    background-color: var( --color-grey-light-2);
+    cursor: pointer;
+}
+.button:focus{
+    outline:none;
+}
+.button:active {
+    transform: translateY(2px);
+}
+
+.icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-light-1);
+}
+
+/*  ================================================
+                    Gallery Styles
+    ================================================   */
+
+.card-grid{
+    display: flex;
+    padding: 3rem;
+    overflow-x: scroll;
+}
+
+.mini-card {
+    min-width: 30rem;
+    min-height: 45rem;
+    padding: 3rem;
+    border-radius: 2rem;
+    background: var(--color-black-primary);
+    box-shadow: -1rem 0 3rem #000;
+    display: flex;
+    flex-direction: column;
+    transition: .2s;
+    margin: 0;
+}
+
+.mini-card:hover {
+    transform: translateY(-1rem);
+}
+
+.mini-card:focus-within ~ .mini-card, .mini-card:hover ~ .mini-card {
+    transform: translateX(13rem);
+}
+
+.mini-card:not(:first-child) {
+    margin-left: -13rem;
+}
+
+/* Gallery Item Styles */
+
+.card-header{
+    margin-bottom: auto;
+}
+
+.card-header-title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+}
+/*
 .book {
     display: inline-block;
     width: 220px;
@@ -24,7 +223,7 @@
     position: absolute;
 }
 
-.book-text{
+.book-text {
     background-color: #000;
     color: #fff;
     opacity: 0.65;
@@ -35,3 +234,5 @@
     bottom: 0;
     padding: 10px;
 }
+
+*/
