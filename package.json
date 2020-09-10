@@ -1,0 +1,51 @@
+{
+  "name": "book-finder",
+  "version": "1.0.0",
+  "description": "React App for finding books using Google API",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --hot --mode='development'",
+    "build": "webpack",
+    "publish": "webpack-dev-server --open --mode='production'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharathkumar106/book-finder.git"
+  },
+  "keywords": [
+    "react",
+    "git",
+    "api",
+    "books",
+    "googleapis",
+    "webapp"
+  ],
+  "author": "Sharath Kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.3.0",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "bootstrap": "^4.5.2",
+    "package.json": "^2.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/sharathkumar106/book-finder/issues"
+  },
+  "homepage": "https://github.com/sharathkumar106/book-finder#readme"
+}
