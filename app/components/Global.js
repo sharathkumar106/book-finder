@@ -28,11 +28,7 @@ class Global extends Component{
         return (
             <div className="container">
                 <div className="header">
-                    {/* <img  
-                        className="logo"
-                        src="https://imgur.com/LGwlFh8.png"
-                        alt="Logo"
-                    /> */}
+                    
 
                     <span className="title">Book Finder</span>
                     
